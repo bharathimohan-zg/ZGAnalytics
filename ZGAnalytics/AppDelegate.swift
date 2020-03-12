@@ -12,23 +12,6 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        self.window = UIWindow(frame: UIScreen.main.bounds)
-////        let isUserLogin = UserDefaults.standard.bool(forKey: "myKey")
-////        if isUserLogin {
-//             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//             let initialViewController = storyboard.instantiateViewController(identifier: "AnimateTabbarViewController")
-//            self.window?.rootViewController = initialViewController
-////        } else {
-////            let storybaord = UIStoryboard(name: "Main", bundle: Bundle.main)
-////            let LoginViewController = storybaord.instantiateViewController(identifier: "LoginViewController")
-////            window?.rootViewController? = LoginViewController
-////        }
-//        self.window?.makeKeyAndVisible()
-//
-//        return true
-//    }
-    
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
             let window = UIWindow(frame: UIScreen.main.bounds)
             self.window = window
