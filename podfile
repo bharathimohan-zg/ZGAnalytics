@@ -1,0 +1,7 @@
+use_frameworks!
+target 'ZGAnalytics' do
+    pod 'Alamofire'
+    pod 'RAMAnimatedTabBarController'
+    pod 'AlamofireNetworkActivityIndicator'
+    pod 'SpreadsheetView'
+end

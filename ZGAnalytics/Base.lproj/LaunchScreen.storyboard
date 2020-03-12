@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1mi-HU-STW">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="YqK-kc-pPs">
+            <objects>
+                <viewController id="1mi-HU-STW" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DcJ-Le-ipt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splachScreen" translatesAutoresizingMaskIntoConstraints="NO" id="ABB-IQ-Ueo">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ABB-IQ-Ueo" firstAttribute="trailing" secondItem="09g-qB-md0" secondAttribute="trailing" id="5pu-Qf-c7a"/>
+                            <constraint firstItem="ABB-IQ-Ueo" firstAttribute="leading" secondItem="09g-qB-md0" secondAttribute="leading" id="IbY-2S-zcW"/>
+                            <constraint firstItem="ABB-IQ-Ueo" firstAttribute="bottom" secondItem="09g-qB-md0" secondAttribute="bottom" id="KVq-7R-NR7"/>
+                            <constraint firstItem="ABB-IQ-Ueo" firstAttribute="top" secondItem="09g-qB-md0" secondAttribute="top" id="cIt-Xb-vpC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="09g-qB-md0"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Mn-fV-Ebm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="splachScreen" width="1125" height="2436"/>
+    </resources>
+</document>

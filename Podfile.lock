@@ -1,0 +1,29 @@
+PODS:
+  - Alamofire (4.9.1)
+  - AlamofireNetworkActivityIndicator (2.4.0):
+    - Alamofire (~> 4.8)
+  - RAMAnimatedTabBarController (5.1.0)
+  - SpreadsheetView (0.8.4)
+
+DEPENDENCIES:
+  - Alamofire
+  - AlamofireNetworkActivityIndicator
+  - RAMAnimatedTabBarController
+  - SpreadsheetView
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AlamofireNetworkActivityIndicator
+    - RAMAnimatedTabBarController
+    - SpreadsheetView
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  AlamofireNetworkActivityIndicator: 9acc3de3ca6645bf0efed462396b0df13dd3e7b8
+  RAMAnimatedTabBarController: b5c821298071fded801532216ad8a24394f89859
+  SpreadsheetView: 17c55b6dc82099993cc2ceb818248d19f3220998
+
+PODFILE CHECKSUM: 19ebdb1efe30b129f24dc840e9db114eee2d47a1
+
+COCOAPODS: 1.8.4
