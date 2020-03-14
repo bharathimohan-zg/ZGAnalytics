@@ -76,5 +76,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Access Photo Library</string>
+	<key>NSCameraUsageDescription</key>
+	<string>$(PRODUCT_NAME) uses Cameras</string>
 </dict>
 </plist>

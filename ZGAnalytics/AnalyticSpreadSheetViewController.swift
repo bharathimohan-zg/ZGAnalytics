@@ -388,18 +388,20 @@ class AnalyticSpreadSheetViewController: UIViewController, SpreadsheetViewDataSo
             }
             spreadsheetView.reloadData()
         } else {
-//            let controller = self.storyboard!.instantiateViewController(withIdentifier: "popupViewController") as! popupViewController
-//            controller.preferredContentSize = CGSize(width: 300, height: 200)
-//            popupTextInfo = data[indexPath.row - 1][indexPath.section]
-//            let touchView = spreadsheetView.dequeueReusableCell(withReuseIdentifier: String(describing: TextCell.self), for: indexPath) as! TextCell
-//            showPopup(controller, sourceView: spreadsheetView[indexPath.row - 1][indexPath.section])
-
-            let vc = self.storyboard!.instantiateViewController(withIdentifier: "popupViewController") as! popupViewController
-            vc.preferredContentSize = CGSize(width: 300, height: 200)
-            let navController = UINavigationController(rootViewController: vc)
-            vc.modalPresentationStyle = .formSheet
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popupViewController") as! popupViewController
+            self.addChild(vc)
             popupTextInfo = data[indexPath.row - 1][indexPath.section]
-            self.present(navController, animated:true, completion: nil)
+            vc.view.frame = self.view.frame
+            self.view.addSubview(vc.view)
+            vc.didMove(toParent: self)
+//            let vc = self.storyboard!.instantiateViewController(withIdentifier: "popupViewController") as! popupViewController
+//            vc.preferredContentSize = CGSize(width: 300, height: 200)
+//            let navController = UINavigationController(rootViewController: vc)
+////            vc.modalPresentationStyle = .formSheet
+//            vc.modalPresentationStyle = .overCurrentContext
+//            vc.modalTransitionStyle = .crossDissolve
+//            popupTextInfo = data[indexPath.row - 1][indexPath.section]
+//            self.present(navController, animated:true, completion: nil)
         }
     }
     private func showPopup(_ controller: UIViewController, sourceView: TextCell) {

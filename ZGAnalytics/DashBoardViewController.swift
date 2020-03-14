@@ -50,6 +50,7 @@ class DashBoardViewController: UIViewController {
     }
     var dashboardList = [dashboardItem]()
     var dashboardInfoList = [dashboardItem]()
+    let loginInfo:[String: Any] = UserDefaults.standard.object(forKey: "loginInfo") as! [String : Any]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,12 +61,30 @@ class DashBoardViewController: UIViewController {
         layout.minimumLineSpacing = spacing
         layout.minimumInteritemSpacing = spacing
         self.dashBoardCollectionVIew?.collectionViewLayout = layout
-        dashbordSegment.selectedSegmentIndex = 0
         analyticBtn.layer.cornerRadius = 5
         analyticBtn.isUserInteractionEnabled = false
         analyticBtn.alpha = 0.5
         setupSegmentedControl()
-        type = "HRM"
+        let Access = self.loginInfo[JSONKeys.Access.rawValue] as! String
+        dashbordSegment.removeAllSegments()
+        if Access.contains("HRM - ALL") && Access.contains("SAP - ALL") {
+            type = "HRM"
+            dashbordSegment.insertSegment(withTitle: "HRM", at: 0, animated: false)
+            dashbordSegment.insertSegment(withTitle: "SAP", at: 1, animated: false)
+        }  else if Access.contains("HRM - ALL") && Access.contains("SAP - SALES") {
+            type = "HRM"
+            dashbordSegment.insertSegment(withTitle: "HRM", at: 0, animated: false)
+            dashbordSegment.insertSegment(withTitle: "SAP", at: 1, animated: false)
+        } else if Access.contains("HRM - ALL") {
+            type = "HRM"
+            dashbordSegment.insertSegment(withTitle: "HRM", at: 0, animated: false)
+        }
+        else if Access.contains("SAP - ALL") || Access.contains("SAP - SALES") {
+            type = "SAP"
+            dashbordSegment.insertSegment(withTitle: "SAP", at: 0, animated: false)
+        }
+        dashbordSegment.selectedSegmentIndex = 0
+
          dashbordSegment.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Ubuntu-Light", size: 16)!], for: .normal)
         self.navigationController?.navigationBar.titleTextAttributes =
             [NSAttributedString.Key.foregroundColor: UIColor.white,
@@ -78,7 +97,7 @@ class DashBoardViewController: UIViewController {
                } else {
                   dashbordSegment.tintColor = UIColor(red: 241/255.0, green: 107/255.0, blue: 182/255.0, alpha: 1)
                }
-        self.getBranchList(branchTitle: "HRM")
+        self.getBranchList(branchTitle: type)
 
         // Do any additional setup after loading the view.
     }
@@ -157,8 +176,8 @@ class DashBoardViewController: UIViewController {
                         let branchName =  DashBoardViewController.nullToNil(value: branchDict[branchTitle == "HRM" ? JSONKeys.branchname.rawValue : JSONKeys.BPLName.rawValue] as? String) as! String
                         let brancId =  DashBoardViewController.nullToNil(value: branchDict[branchTitle == "HRM" ? JSONKeys.bid.rawValue : JSONKeys.BPLId.rawValue ] as? NSNumber) as! String
                         let branchInfo = dashBoardObject(branchName: branchName, brancheId: brancId, isSelectedVal: false, branchDict: branchDict)
-                        let loginInfo:[String: Any] = UserDefaults.standard.object(forKey: "loginInfo") as! [String : Any]
-                        let branchNameVal = DashBoardViewController.nullToNil(value: loginInfo[JSONKeys.branch.rawValue] as? String) as! String
+//                        let loginInfo:[String: Any] = UserDefaults.standard.object(forKey: "loginInfo") as! [String : Any]
+                        let branchNameVal = DashBoardViewController.nullToNil(value: self.loginInfo[JSONKeys.branch.rawValue] as? String) as! String
                         if branchNameVal == "PAN INDIA" {
                         branchListValue.branchList.append(branchInfo)
                         } else {
@@ -204,7 +223,14 @@ class DashBoardViewController: UIViewController {
                                         let branchCode =  DashBoardViewController.nullToNil(value: branchDict[JSONKeys.Code.rawValue] as? NSNumber) as! String
                                         let parsedBranch = branchName.replacingOccurrences(of: " Department", with: "")
                                         let branchDict = dashBoardObject(branchName: parsedBranch, brancheId: branchCode, isSelectedVal: false, branchDict: [:])
+                                        let Access = self.loginInfo[JSONKeys.Access.rawValue] as! String
+                                        if Access.contains("SAP - ALL") {
                                         branchHrmList.branchList.append(branchDict)
+                                        } else if Access.contains("SAP - SALES") {
+                                            if branchName == "Sales Department" {
+                                            branchHrmList.branchList.append(branchDict)
+                                            }
+                                        }
                                     }
                                     self.dashboardList.append(branchHrmList)
                                     if branchHrmList.branchList.count > 0 {

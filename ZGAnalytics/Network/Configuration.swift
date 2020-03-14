@@ -74,7 +74,8 @@ enum JSONKeys: String {
     case Amount
     case Data
     case branch
-
+    case Branches
+    case Access
 }
 
 enum WBInstoreErrorCodes: Int {
