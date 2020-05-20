@@ -18,6 +18,7 @@ protocol WBInstoreEndPoints {
     func getApplicationList(withDetails inDetails: [String: Any], completionHandler:@escaping ([String: Any]) -> Void)
     func getLeadCountList(withDetails inDetails: String, completionHandler:@escaping ([String: Any]) -> Void) 
     func getLoginDetail(withDetails inDetails: [String: Any], completionHandler:@escaping ([String: Any]) -> Void)
+    func getProfileInfo(withDetails inDetails: [String: Any], completionHandler:@escaping ([String: Any]) -> Void)
 
 
 }

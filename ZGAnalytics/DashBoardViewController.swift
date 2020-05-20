@@ -181,7 +181,6 @@ class DashBoardViewController: UIViewController {
                         if branchNameVal == "PAN INDIA" {
                         branchListValue.branchList.append(branchInfo)
                         } else {
-
                             if branchTitle == "HRM" {
                             if branchNameVal ==  branchName {
                                 branchListValue.branchList.append(branchInfo)

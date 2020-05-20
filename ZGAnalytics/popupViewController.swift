@@ -18,9 +18,8 @@ class popupViewController: UIViewController,UITextViewDelegate {
         popupText.text = popupTextInfo
         self.view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.8)
         self.showAnimate()
-
-        // Do any additional setup after loading the view.
     }
+    
     @IBAction func shareAction(_ sender: Any) {
         let image = self.view.takeScreenshot()
         let imageToShare = [image]

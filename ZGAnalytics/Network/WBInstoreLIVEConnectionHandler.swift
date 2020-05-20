@@ -242,4 +242,29 @@ extension WBInstoreLIVEConnectionHandler: WBInstoreEndPoints {
             }
         }
     }
+    
+    func getProfileInfo(withDetails inDetails: [String: Any], completionHandler:@escaping ([String: Any]) -> Void) {
+        NetworkActivityIndicatorManager.shared.isEnabled = true
+        networkRequest.request(URL(string: hrmBaseApi + "getprofile")!, method: RequestMethod.post, parameters: inDetails, headers: nil) { (response) in
+            switch response {
+            case .success(let data):
+                NetworkActivityIndicatorManager.shared.isEnabled = false
+                do {
+                    let jsonResponse = try JSONSerialization.jsonObject(with:
+                        data, options: JSONSerialization.ReadingOptions.allowFragments)
+                    guard let responseJSON = jsonResponse as? [String: Any]
+                        else {
+                            completionHandler([:])
+                            return
+                    }
+                    completionHandler(responseJSON)
+                } catch _ {
+                    completionHandler([:])
+                }
+            case .failure( _):
+                NetworkActivityIndicatorManager.shared.isEnabled = false
+                completionHandler([:])
+            }
+        }
+    }
 }

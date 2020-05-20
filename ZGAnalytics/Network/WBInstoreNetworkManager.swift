@@ -42,6 +42,12 @@ struct WBInstoreNetworkManager {
             completionHandler(result)
         }
     }
+    func getProfileInfo(withDetails inDetails: [String: Any], completionHandler:@escaping ([String: Any]) -> Void) {
+        connectionHandler.getProfileInfo(withDetails: inDetails) { (result) in
+            completionHandler(result)
+        }
+
+    }
     func getStaffList(withDetails inDetails: [String: Any],serviceName: String, completionHandler:@escaping ([String: Any]) -> Void) {
         connectionHandler.getStaffList(withDetails: inDetails, serviceName: serviceName) { (result) in
                 completionHandler(result)

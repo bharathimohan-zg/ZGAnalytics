@@ -57,4 +57,6 @@ extension WBInstoreMockConnectionHandler: WBInstoreEndPoints {
     }
     func getLoginDetail(withDetails inDetails: [String: Any], completionHandler:@escaping ([String: Any]) -> Void) {
     }
+    func getProfileInfo(withDetails inDetails: [String: Any], completionHandler:@escaping ([String: Any]) -> Void) {
+    }
 }
